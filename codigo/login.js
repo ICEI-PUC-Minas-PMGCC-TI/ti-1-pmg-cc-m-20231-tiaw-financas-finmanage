@@ -17,8 +17,11 @@ document.getElementById("login-form").addEventListener("submit", function (event
         // Login bem-sucedido
         localStorage.setItem("isLoggedIn", "true"); // Marca o usuário como logado
 
+        // Salvar o nome do usuário no Local Storage
+        localStorage.setItem("nomeUsuario", contaExistente.nome);
+
         // Redireciona para a página inicial
-        window.location.href = "home.html";
+        window.location.href = "home2.html";
     } else {
         // Login inválido
         exibirMensagemErro("Nome de usuário ou senha incorretos");
