@@ -77,8 +77,8 @@ nav a {
 }
 
 .about {
-    background-color: white;
-    color: black;
+    background-image: url(imagem-home/black-green\ background.jpg);
+    color: white;
     padding: 100px 0;
     text-align: center;
 }
@@ -92,8 +92,8 @@ nav a {
 }
 
 footer {
-    background-color: white;
-    color: black;
+    background-image: url(imagem-home/black-green\ background.jpg);
+    color: white;
     padding: 20px;
     text-align: center;
 }
