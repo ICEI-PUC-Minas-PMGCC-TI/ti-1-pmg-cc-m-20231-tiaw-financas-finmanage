@@ -155,6 +155,7 @@ function adicionarDespesa(despesa) {
     }
 }
 
+
 let primeiraCarga = true;
 
 // Carrega os dados da Local Storage na tabela
