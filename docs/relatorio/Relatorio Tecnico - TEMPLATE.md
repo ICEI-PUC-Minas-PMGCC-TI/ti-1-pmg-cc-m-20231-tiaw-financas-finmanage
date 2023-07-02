@@ -368,89 +368,242 @@ A  seguir traz a referência utilizada nesse trabalho:
 
 # **############## SPRINT 1 ACABA AQUI #############**
 
+## Implementacão da solução 
 
-# Projeto da Solução
-
-......  COLOQUE AQUI O SEU TEXTO ......
-
-## Tecnologias Utilizadas
-
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Descreva aqui qual(is) tecnologias você vai usar para resolver o seu
-> problema, ou seja, implementar a sua solução. Liste todas as
-> tecnologias envolvidas, linguagens a serem utilizadas, serviços web,
-> frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
-> Apresente também uma figura explicando como as tecnologias estão
-> relacionadas ou como uma interação do usuário com o sistema vai ser
-> conduzida, por onde ela passa até retornar uma resposta ao usuário.
-> 
-> Inclua os diagramas de User Flow, esboços criados pelo grupo
-> (stoyboards), além dos protótipos de telas (wireframes). Descreva cada
-> item textualmente comentando e complementando o que está apresentado
-> nas imagens.
+Nesta seção são apresentados os detalhes técnicos da solução criada pela equipe, tratando da Arquitetura da Solução, as estruturas de dados e as telas já implementadas.
 
 ## Arquitetura da solução
 
-......  COLOQUE AQUI O SEU TEXTO E O DIAGRAMA DE ARQUITETURA .......
+Diagrama de Componentes
+Os componentes que fazem parte da solução são apresentados na Figura que se segue.
 
-> Inclua um diagrama da solução e descreva os módulos e as tecnologias
-> que fazem parte da solução. Discorra sobre o diagrama.
-> 
-> **Exemplo do diagrama de Arquitetura**:
-> 
-> ![Exemplo de Arquitetura](images/arquitetura-exemplo.png)
+![Exemplo de Arquitetura](images/Arquitetura_da_solucao_img.png)
+A solução implementada conta com os seguintes módulos:
+Navegador - Interface básica do sistema 
+Páginas Web - Conjunto de arquivos HTML, CSS, JavaScript e imagens que implementam as funcionalidades do sistema.
+Local Storage - armazenamento mantido no Navegador, onde são implementados bancos de dados baseados em JSON. São eles: 
+Cadastro de Perfil- seções de cadastro de usuários 
+Cadastro de Despesas Fixas- lançamento de gastos do usuário
+Cadastro de Renda- lançamento de receita do usuário
+Lançamento de Gastos - lista com o cadastro dos últimos lançamentos
+Média dos gráficos -utiliza os dados do cadastro para dar médias e mostrar categorias.
+Hospedagem - local na Internet onde as páginas são mantidas e acessadas pelo navegador, que em nosso caso foi o replit.
+
+Hospedagem
+O site utiliza a plataforma do Replit como ambiente de hospedagem do site do projeto. O site é mantido no ambiente da URL: ***********************http://fin-manage.joaomadeira12.repl.co/ *******************
+A publicação do site no Replit é feita por meio de uma submissão do projeto (push) via git para o repositório remoto que se encontra no endereço: ******https://github.com/joaomadeira1208/ti-1-pmg-cc-m-20231-tiaw-financas-finmanage*********************************
+
+Template do Site
+O padrão de layout a ser utilizado pelo site tem correspondência ao projeto de Interface elaborado anteriormente.
+
+O template criado é composto pelos seguintes layouts: 
+Home page
+Quem somos
+Login
+Interface de utilidade do site.
+
+A responsividade segue o padrão do Bootstrap.
+
+HomePage Comercial
+Tela que abrange todas as visualizações iniciais do site e a mostra nossos beneficios..
+![HomePage](images/HomePage.png)
+
+Login/Cadastro
+Este layout é utilizado para criação de contas e login no site, o qual dá acesso às funcionalidades.
+![LoginCadastro](images/LoginCadastro.png)
+
+HomePage da Conta
+Local onde são exibidos o nome do usuário, juntamente com caminhos intuitivos para acessar nossas funcionalidades.
+![HomePagedaConta](images/HomePagedaConta.png)
+
+Funcionalidades do Sistema (Telas)
+Nesta seção são apresentadas as telas desenvolvidas para cada uma das funcionalidades do sistema. O respectivo endereço (URL) e outras orientações de acesso são apresentadas na sequência.
+Entrega Sprint 2 - Cadastro de Despesas Fixas (RF-01, RF-02 e RF-04)
+Alunos responsável: João Madeira Carneiro Braga de Freitas
+A tela principal dessa funcionalidade apresenta a possibilidade do usuário colocar suas despesas fixas a serem sempre contabilizadas, como por exemplo algum gasto com educação(escola), ou de transporte, podendo também classificar tal gasto em uma categoria. Os dados são armazenados no LocalStorage com estruturas baseadas em JSON. Um exemplo da tela é apresentado na Figura abaixo.. 
+![CadastroDespesasFixas](images/telaJM1.png)
+
+Requisitos atendidos
+(diversas funcionalidades atendem aos mesmos requisitos, porque elas se complementam)
+RF-01 - O site deve permitir que os usuários registrem todas as suas receitas e despesas de forma fácil e organizada.
+RF-02 - O site deve permitir que os usuários criem e gerenciem seus orçamentos mensais e anuais.
+RF-04 - O site deve permitir que os usuários classifiquem suas transações em categorias, como alimentação, transporte, moradia, entre outras.
+
+Artefatos da funcionalidade:
+cadastro-despesa-fixa.html
+cadastro-despesa-fixa.js
+cadastro-despesa-fixa.css
+
+Estrutura de Dados
+![EstruturadeDados](images/estruturadedados.png)
+Instruções de acesso
+  
+  Abra um navegador de Internet e informe a seguinte URL: https://repl.it/Sf3l@#3ks 
+  
+  A tela de cadastro de despesas aparece disponível depois de criar e logar em uma conta, sendo necessário clicar no nome “Cadastro de Despesas Fixas”.
+
+Entrega Sprint 3 - Cadastro de Receitas (RF-01, RF-02 e RF-04)
+Alunos responsável: João Madeira Carneiro Braga de Freitas
+Link do código: http:///
+A tela principal dessa funcionalidade apresenta a possibilidade do usuário colocar suas receitas, como por exemplo alguma receita advinda do salário, ou alguma pensão. Os dados são armazenados no LocalStorage com estruturas baseadas em JSON. Um exemplo da tela é apresentado na Figura abaixo.
+![CadastroReceitas](images/cadastroreceitas.png)
+Requisitos atendidos
+(diversas funcionalidades atendem aos mesmos requisitos, porque elas se complementam)
+  RF-01 - O site deve permitir que os usuários registrem todas as suas receitas e despesas de forma fácil e organizada.
+  
+  RF-02 - O site deve permitir que os usuários criem e gerenciem seus orçamentos mensais e anuais.
+  
+  RF-04 - O site deve permitir que os usuários classifiquem suas transações em categorias, como alimentação, transporte, moradia, entre outras.
+
+Artefatos da funcionalidade
+  cadastro-receita.html
+  cadastro-receita.js
+  cadastro-receita.css
+
+Estrutura de Dados
+![EstruturadeDados](images/estrututadedados2.png)
+Instruções de acesso
+  Abra um navegador de Internet e informe a seguinte URL: https://repl.it/Sf3l@#3ks 
+  A tela de cadastro de despesas aparece disponível depois de criar e logar em uma conta, sendo necessário clicar no nome “Cadastro de Receitas”
+
+Entrega Sprint 2 - Criação de Conta e Login 
+Alunos responsáveis: João Madeira Carneiro Braga de Freitas/João Lucas Azeredo Coutinho Curi
+A tela principal dessa funcionalidade apresenta a possibilidade do usuário criar sua conta na plataforma e realizar seu login para acessar nossas funcionalidades . Os dados são armazenados no LocalStorage com estruturas baseadas em JSON. Um exemplo da tela é apresentado na Figura abaixo.
+![CriacaodeConta](images/criacaodecontaJL.png)
+![Login](images/login.png)
+
+Requisitos atendidos
+(diversas funcionalidades atendem aos mesmos requisitos, porque elas se complementam)
+  A parte de login não foi um requisito específico, entretanto ela compõe todos os outros requisitos e é de extrema importância e a base do funcionamento do site.
+
+Artefatos da funcionalidade
+  criacão-conta.html
+  criacão-conta.js
+  criacão-conta.css
+  login.html
+  login.js
+  login.css
+
+Estrutura de Dados
+![EstruturadeDados](images/estruturadedados3.png)
+Instruções de acesso
+  Abra um navegador de Internet e informe a seguinte URL: https://repl.it/Sf3l@#3ks 
+  A tela de criação de conta fica disponível logo em sequência da homepage comercial.
+
+Entrega Sprint 3 - Cadastro de Gastos (RF-01, RF-02 e RF-04)
+Alunos responsáveis: João Madeira Carneiro Braga de Freitas/João Lucas Azeredo Coutinho Curi
+A tela principal dessa funcionalidade apresenta a possibilidade do usuário colocar suas gastos do dia a dia de forma fácil e organizada, como por exemplo algum gasto com almoço ou uber, podendo também classificar tal gasto em uma categoria. Os dados são armazenados no LocalStorage com estruturas baseadas em JSON. Um exemplo da tela é apresentado na Figura abaixo.
+![CadastrodeGastos](images/cadastrodegastos.png)
+Requisitos atendidos
+(diversas funcionalidades atendem aos mesmos requisitos, porque elas se complementam)
+  RF-01 - O site deve permitir que os usuários registrem todas as suas receitas e despesas de forma fácil e organizada.
+  RF-02 - O site deve permitir que os usuários criem e gerenciem seus orçamentos mensais e anuais.
+  RF-04 - O site deve permitir que os usuários classifiquem suas transações em categorias, como alimentação, transporte, moradia, entre outras.
+
+Artefatos da funcionalidade
+  cadastro-gasto.html
+  cadastro-gasto.js
+  cadastro-gasto.css
+
+Estrutura de Dados
+![EstruturadeDados](images/estruturadedados4.png)
+
+Instruções de acesso
+  Abra um navegador de Internet e informe a seguinte URL: https://repl.it/Sf3l@#3ks 
+  A tela de notícias é a primeira funcionalidade exibida pelo aplicativo.
+
+
+
+
+
+
 
 
 # Avaliação da Aplicação
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Apresente os cenários de testes utilizados na realização dos testes da
-> sua aplicação. Escolha cenários de testes que demonstrem os requisitos
-> sendo satisfeitos.
+O processo de realização dos testes da solução desenvolvida está documentado na seção que se segue e traz os planos de testes de software e de usabilidade, na sequência, o registro dos testes realizados.
 
 ## Plano de Testes
 
-......  COLOQUE AQUI O SEU TEXTO ......
+ Plano de Testes de Software
+Requisitos para realização do teste:
+Site publicado na Internet
+Navegador da Internet - Chrome, Firefox ou Edge
+Conectividade de Internet para acesso às plataformas (APIs)
 
-> Enumere quais cenários de testes foram selecionados para teste. Neste
-> tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo
-> de usuários que foi escolhido para participar do teste e as
-> ferramentas utilizadas.
-> 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
+Os testes funcionais a serem realizados no aplicativo são descritos nas imagens a seguir.
+![TesteSoftware](images/planotestesoftware1.png)
+![TesteSoftware e Teste Cadastro de Despesas Fixas](images/testesoftware2.png)
+![TesteCadastro de Receitas](images/testecadastrodereceita.png)
+![Teste Cadastro de Gastos](images/testedecadastrodegastos.png)
 
-## Ferramentas de Testes (Opcional)
+  Registro de Testes de Software
+Os resultados obtidos nos testes de software realizados são descritos na Tabela a seguir:
+![Resultados](images/resultados.png)
 
-......  COLOQUE AQUI O SEU TEXTO ......
+  Plano de Testes de Usabilidade
 
-> Comente sobre as ferramentas de testes utilizadas.
-> 
+O planejamento dos testes de usabilidade a serem realizados com usuários são descritos na Tabela a seguir.
+![Teste de Usabilidade](images/testedeusabilidade.png)
+![Continuacao](images/testedeusabilidade2.png)
+
+  Registro de Testes de Usabilidade
+
+Os resultados obtidos nos testes de usabilidade realizados são descritos na Tabela a seguir:
+![Personas Detalhes](images/personas.png)
+
+## Registros de Testes
+
+Christiano Tavares:
+  Conseguiu usar a plataforma com facilidade e sem auxílio,comprovando a eficiência na praticidade e na acessibilidade.
+  Utilizou o site para fazer o gerenciamento de suas despesas e nos mandou print de algumas telas de quando fez o cadastro e de seu uso do aplicativo ao longo do dia:
+  ![Login Efetuado](images/loginefetuado.png)
+  ![Cadastro de Despexas Fixas](images/feitocadastrodedespesasfixas.png)
+  ![Tela do Celular do Christiano](images/telacelular.png)
+
+  Christiano foi o que mais se engajou no projeto, conversava com a gente durante o dia no WhatsApp mandando as fotos e atualizações e ao final de sua experiência fizemos uma ligação para conversar e pegar seu feedback. No geral ele gostou muito da ideia do aplicativo e achou uma forma legal de sair do famoso “caderninho“, entretanto apontou que sentiu falta de algumas funcionalidades e deu sugestões que serão apresentadas na conclusão dos feedbacks.
+
+
+Isabela Rodrigues:
+  Conseguiu usar a plataforma com facilidade e sem auxílio,comprovando a eficiência na praticidade e na acessibilidade.
+  Utilizou o site para fazer o gerenciamento de seus gastos ao longo do dia e nos mandou print usando em seu notebook durante o trabalho na empresa.
+
+![Telas de Uso Isabela](images/telasdeusoisabela.png)
+
+  Isabela usou o nosso site durante a tarde para o lançamento de seus gastos, colocou todos os seus gastos de uma quarta feira usual de seu cotidiano. Ao final da semana no dia 01/07 fizemos uma reunião com ela para pegarmos seu feedback e pra ela passar os prints da conta dela. Ela disse ter gostado bastante da interface e disse que cumpria com o que prometia, porém afirmou  que não seria um aplicativo que ela usaria durante o dia por conta da falta de integração com suas contas bancárias.
+
+
+Marcela Menezes:
+  Conseguiu usar a plataforma com facilidade e sem auxílio,comprovando a eficiência na praticidade e na acessibilidade.
+
+  Utilizou o site para fazer o lançamento de seus gastos ao longo do dia 30/06 e nos mandou print usando em seu notebook e celular durante o trabalho e saindo na sexta.
+
+![Telas de Uso Marcela](images/telasdeusomarcela.png)
+ 
+  Marcela foi a mais prática e já nos mandou o feedback ao final do dia por áudio falando que gostou bastante da plataforma, que achou o design bonito e chamativo. Ela, que é uma pessoa metódica com os gastos do cartão, achou que era muito melhor e fácil fazer a confirmação dos lançamentos de seu cartão (verificação de lançamentos duplicados e/ou errados)  e achou bem melhor do que usar as planilhas do excel.
+  Inclusive usou o site para editar seus gastos que lançou errado quando estava no bar.
+
+Luiz Augusto:
+  Entramos em contato com Luiz que nos respondeu afirmando que iria usar o site entre os dias (26-01/07), entretanto ele não usou o site e nem fez o cadastro, o que talvez signifique que ele nao ficou interessado no projeto, apesar de ele ter falado que não usou o site por conta de falta de tempo e da semana corrida no trabalho.
+
+Os problemas e os Feedbacks se encontram na imagem a seguir:
+![Problemas/Feedbacks](images/feedbakcs.png)
+
+
+
+
+
+
+
 > **Links Úteis**:
 > - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
 > - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
 
-## Registros de Testes
-
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Discorra sobre os resultados do teste. Ressaltando pontos fortes e
-> fracos identificados na solução. Comente como o grupo pretende atacar
-> esses pontos nas próximas iterações. Apresente as falhas detectadas e
-> as melhorias geradas a partir dos resultados obtidos nos testes.
 
 
 # Referências
 
-......  COLOQUE AQUI O SEU TEXTO ......
+A lista a seguir traz as referências utilizadas nesse trabalho. são elas: 
+A a seguir a referência utilizada nesse trabalho. é ela: 
+"The Benefits of Creating a Budget", artigo do site Forbes.
 
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados
-> no desenvolvimento do trabalho.
-> 
-> **Links Úteis**:
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
