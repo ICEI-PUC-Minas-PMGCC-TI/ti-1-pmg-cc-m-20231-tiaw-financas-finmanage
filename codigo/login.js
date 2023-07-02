@@ -20,6 +20,9 @@ document.getElementById("login-form").addEventListener("submit", function (event
         // Salvar o nome do usuário no Local Storage
         localStorage.setItem("nomeUsuario", contaExistente.nome);
 
+        // Salvar o ID da conta logada no Local Storage
+        localStorage.setItem("contaLogada", contaExistente.id);
+
         // Redireciona para a página inicial
         window.location.href = "home2.html";
     } else {
@@ -40,3 +43,4 @@ function exibirMensagemErro(mensagem) {
     mensagemErro.textContent = mensagem;
     mensagemErro.style.display = "block";
 }
+

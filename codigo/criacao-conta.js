@@ -22,6 +22,7 @@ document.getElementById("formConta").addEventListener("submit", function (event)
 
     // Criar um objeto com os dados da conta
     var conta = {
+        id: gerarId(),
         nome: nome,
         email: email,
         senha: senha
@@ -57,6 +58,9 @@ function salvarConta(conta) {
 
     // Armazenar as contas atualizadas no repositório (Local Storage)
     localStorage.setItem("contas", JSON.stringify(contas));
+
+    // Armazenar o ID da conta logada no Local Storage
+    localStorage.setItem("contaLogada", novoId);
 }
 
 function obterContas() {

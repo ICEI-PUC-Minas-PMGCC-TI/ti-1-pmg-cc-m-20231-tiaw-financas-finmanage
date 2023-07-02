@@ -28,8 +28,15 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
 let despesaSelecionada;
 
+
 // Função para adicionar uma nova despesa à tabela
 function adicionarDespesa(despesa) {
+
+    // Obtém o ID da conta logada do Local Storage
+    const contaLogadaId = localStorage.getItem("contaLogada");
+
+    // Associa o ID da conta logada à despesa
+    despesa.contaId = contaLogadaId;
     const tabela = document.querySelector('table tbody');
 
     // Verifica se a despesa já existe na tabela
@@ -158,33 +165,19 @@ function carregarDespesas() {
         tabela.innerHTML = '';
     }
 
+    // Obtém o ID da conta logada do Local Storage
+    contaLogadaId = localStorage.getItem("contaLogada");
+
     const despesasLocalStorage = JSON.parse(localStorage.getItem('despesas')) || [];
 
     despesasLocalStorage.forEach(function (despesa) {
-        adicionarDespesa(despesa);
+        // Verifica se a despesa pertence à conta logada
+        if (despesa.contaId === contaLogadaId) {
+            adicionarDespesa(despesa);
+        }
     });
 
     primeiraCarga = false;
 }
 
-
-
 carregarDespesas();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -13,11 +13,15 @@ function adicionarReceita(event) {
         return; // Retorna e não executa o restante da função
     }
 
+    // Obtém o ID da conta logada do Local Storage
+    var contaLogada = localStorage.getItem("contaLogada");
+
     // Cria um objeto com os valores da receita
     var receita = {
         valor: valor,
         fonte: fonte,
-        data: data
+        data: data,
+        contaId: contaLogada
     };
 
     // Verifica se já existem receitas armazenadas no Local Storage
@@ -62,39 +66,32 @@ function removerReceita(index) {
 
 // Função para atualizar a tabela com as receitas do Local Storage
 function atualizarTabela() {
-    // Obtém o elemento da tabela
     var tabela = document.getElementById("tabela-receitas");
-
-    // Limpa a tabela, mantendo apenas a linha superior
     while (tabela.rows.length > 1) {
         tabela.deleteRow(1);
     }
 
-    // Obtém as receitas do Local Storage
     var receitas = JSON.parse(localStorage.getItem("receitas"));
+    var contaLogada = localStorage.getItem("contaLogada");
 
-    // Verifica se existem receitas
     if (receitas !== null) {
-        // Para cada receita, cria uma nova linha na tabela
         receitas.forEach(function (receita, index) {
-            var valor = receita.valor;
-            var fonte = receita.fonte;
-            var data = receita.data;
+            if (receita.contaId === contaLogada) { // Verifica se o ID da conta da receita é igual ao ID da conta logada
+                var valor = receita.valor;
+                var fonte = receita.fonte;
+                var data = receita.data;
 
-            // Cria uma nova linha na tabela
-            var row = tabela.insertRow();
+                var row = tabela.insertRow();
+                var cellValor = row.insertCell();
+                var cellFonte = row.insertCell();
+                var cellData = row.insertCell();
+                var cellRemover = row.insertCell();
 
-            // Insere as células na linha
-            var cellValor = row.insertCell();
-            var cellFonte = row.insertCell();
-            var cellData = row.insertCell();
-            var cellRemover = row.insertCell();
-
-            // Preenche as células com os valores da receita
-            cellValor.innerHTML = valor;
-            cellFonte.innerHTML = fonte;
-            cellData.innerHTML = data;
-            cellRemover.innerHTML = "<button onclick=\"removerReceita(" + index + ")\">Remover</button>";
+                cellValor.innerHTML = valor;
+                cellFonte.innerHTML = fonte;
+                cellData.innerHTML = data;
+                cellRemover.innerHTML = "<button onclick=\"removerReceita(" + index + ")\">Remover</button>";
+            }
         });
     }
 }

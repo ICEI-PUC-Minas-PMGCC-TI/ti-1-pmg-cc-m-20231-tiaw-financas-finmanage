@@ -13,11 +13,15 @@ function adicionarCadastro(event) {
         return; // Retorna e não executa o restante da função
     }
 
+    // Obtém o ID da conta logada do Local Storage
+    var contaLogada = localStorage.getItem("contaLogada");
+
     // Cria um objeto com os valores do cadastro
     var cadastro = {
         preco: preco,
         despesa: despesa,
-        recorrencia: recorrencia
+        recorrencia: recorrencia,
+        contaId: contaLogada
     };
 
     // Verifica se já existem cadastros armazenados no Local Storage
@@ -50,59 +54,31 @@ function removerCadastro(index) {
     // Obtém os cadastros do Local Storage
     var cadastros = JSON.parse(localStorage.getItem("despesaFixa"));
 
-    // Remove o cadastro com o índice especificado
-    cadastros.splice(index, 1);
+    // Obtém o ID da conta logada do Local Storage
+    var contaLogada = localStorage.getItem("contaLogada");
 
-    // Atualiza o Local Storage com os cadastros atualizados
-    localStorage.setItem("despesaFixa", JSON.stringify(cadastros));
+    // Filtra os cadastros mantendo apenas aqueles cujo contaId é igual ao contaLogada
+    var cadastrosFiltrados = cadastros.filter(function (cadastro) {
+        return cadastro.contaId === contaLogada;
+    });
 
-    // Atualiza a tabela
-    atualizarTabela();
-}
+    // Verifica se o índice está dentro do intervalo válido para os cadastros filtrados
+    if (index >= 0 && index < cadastrosFiltrados.length) {
+        // Encontra o índice correspondente nos cadastros originais
+        var originalIndex = cadastros.indexOf(cadastrosFiltrados[index]);
 
-// Função para atualizar a tabela com os cadastros do Local Storage
-function atualizarTabela() {
-    // Obtém o elemento da tabela
-    var tabela = document.getElementById("tabela-cadastros");
+        // Remove o cadastro com o índice original especificado
+        cadastros.splice(originalIndex, 1);
 
-    // Limpa a tabela
-    tabela.innerHTML = "";
+        // Atualiza o Local Storage com os cadastros atualizados
+        localStorage.setItem("despesaFixa", JSON.stringify(cadastros));
 
-    // Obtém os cadastros do Local Storage
-    var cadastros = JSON.parse(localStorage.getItem("despesaFixa"));
-
-    // Verifica se existem cadastros
-    if (cadastros !== null) {
-        // Para cada cadastro, cria uma nova linha na tabela
-        cadastros.forEach(function (cadastro, index) {
-            var preco = cadastro.preco;
-            var despesa = cadastro.despesa;
-            var recorrencia = cadastro.recorrencia;
-
-            // Cria uma nova linha na tabela
-            var row = tabela.insertRow();
-
-            // Insere as células na linha
-            var cellPreco = row.insertCell();
-            var cellDespesa = row.insertCell();
-            var cellRecorrencia = row.insertCell();
-            var cellRemover = row.insertCell();
-
-            // Preenche as células com os valores do cadastro
-            cellPreco.innerHTML = preco;
-            cellDespesa.innerHTML = despesa;
-            cellRecorrencia.innerHTML = recorrencia;
-            cellRemover.innerHTML = "<button onclick=\"removerCadastro(" + index + ")\">Remover</button>";
-        });
+        // Atualiza a tabela
+        atualizarTabela();
     }
 }
 
-// Adiciona um evento de clique ao botão "Cadastrar"
-var cadastrarButton = document.querySelector('input[type="submit"]');
-cadastrarButton.addEventListener("click", adicionarCadastro);
 
-// Atualiza a tabela quando a página é carregada
-window.addEventListener("load", atualizarTabela);
 
 // Função para atualizar a tabela com os cadastros do Local Storage
 function atualizarTabela() {
@@ -114,13 +90,21 @@ function atualizarTabela() {
         tabela.deleteRow(1);
     }
 
+    // Obtém o ID da conta logada do Local Storage
+    var contaLogada = localStorage.getItem("contaLogada");
+
     // Obtém os cadastros do Local Storage
     var cadastros = JSON.parse(localStorage.getItem("despesaFixa"));
 
     // Verifica se existem cadastros
     if (cadastros !== null) {
-        // Para cada cadastro, cria uma nova linha na tabela
-        cadastros.forEach(function (cadastro, index) {
+        // Filtra os cadastros com base no ID da conta logada
+        var cadastrosFiltrados = cadastros.filter(function (cadastro) {
+            return cadastro.contaId === contaLogada;
+        });
+
+        // Para cada cadastro filtrado, cria uma nova linha na tabela
+        cadastrosFiltrados.forEach(function (cadastro, index) {
             var preco = cadastro.preco;
             var despesa = cadastro.despesa;
             var recorrencia = cadastro.recorrencia;
@@ -138,9 +122,15 @@ function atualizarTabela() {
             cellPreco.innerHTML = preco;
             cellDespesa.innerHTML = despesa;
             cellRecorrencia.innerHTML = recorrencia;
-            cellRemover.innerHTML = "<button onclick=\"removerCadastro(" + index + ")\">Remover</button>";
+            cellRemover.innerHTML =
+                "<button onclick=\"removerCadastro(" + index + ")\">Remover</button>";
         });
     }
 }
 
+// Adiciona um evento de clique ao botão "Cadastrar"
+var cadastrarButton = document.querySelector('input[type="submit"]');
+cadastrarButton.addEventListener("click", adicionarCadastro);
 
+// Atualiza a tabela quando a página é carregada
+window.addEventListener("load", atualizarTabela);
