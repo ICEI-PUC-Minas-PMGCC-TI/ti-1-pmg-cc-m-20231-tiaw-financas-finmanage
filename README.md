@@ -1,18 +1,18 @@
 # Nome do projeto
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+FinManage
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* João Madeira Carneiro Braga de Freitas    
+* João Lucas Azeredo Coutinho Curi
+* Emanuel Gandra Almeida Duque Cabral
+
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Simone de Assis Alves da Silva
+
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Assim que entrar na tela inicial, clique na opção de criar conta. Após criar a conta, realize seu login e começe a utilizar os recursos. Existe três recursos no nosso site: Lançe seus gastos (Onde o usuário deve cadastrar as despesas do dia a dia), Cadastro de despesas fixas(Onde o usuário deve cadastrar despesas recorrentes) e Cadastro de Receitas(Onde o usuário deve cadastrar todos seus ganhos).
